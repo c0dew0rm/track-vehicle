@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "track-vehicle"
+    }
+  },
+  "defaultProject": "track-vehicle",
+  "cli": {
+    "analytics": false
+  }
 }
