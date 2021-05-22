@@ -25,7 +25,8 @@ export class ReadCSVService {
         for(let i=0;i<this.csvRecords.length;i++) {
           this.location[i]={
           lat:parseFloat(this.csvRecords[i][1]),
-          lng:parseFloat(this.csvRecords[i][2])
+          lng:parseFloat(this.csvRecords[i][2]),
+          timeStamp: this.csvRecords[i][0],
           }
         }
       }, (error: NgxCSVParserError) => {
@@ -33,7 +34,7 @@ export class ReadCSVService {
       });
   }
 
-  getLocation(i):Observable<INFO> {  
+  getLocation(i):Observable<INFO> {
     const location=of(this.location[i]);
     return location;
   } 

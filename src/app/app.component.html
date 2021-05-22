@@ -1,10 +1,12 @@
 <input type="file" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)"
   accept=".csv" />
 
-<button (click)="plotOnMaps()">track</button>
+<button (click)="plotOnMaps()">Start</button>
+<button (click)="pausePlot()">Pause</button>
 <button (click)="stopPlot()">Stop</button>
 <button (click)="stepUp()">2X</button>
 <button (click)="stepDown()">1X</button>
+<br><br>
 <div *ngIf="getData">
   <agm-map [latitude]="lati" [longitude]="lngi">
     <agm-marker 
@@ -13,4 +15,5 @@
     >
   </agm-marker>
   </agm-map>
+  <h3>Playback Time:</h3><p>{{playbackTime}}</p>
 </div>

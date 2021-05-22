@@ -22,6 +22,7 @@ export class AppComponent {
   x1=2000;
   x2=200;
   speed=this.x1;
+  playbackTime;
 
   constructor( private ReadCSV:ReadCSVService) { }
 
@@ -37,14 +38,16 @@ export class AppComponent {
 
   plotOnMaps() {
     this.interval= setInterval(()=>{
-     this.i=this.i+1
+      this.i=this.i+1
       this.ReadCSV.getLocation(this.i).subscribe((res)=>{
         if(res!=undefined) {
           this.markers=res;
           this.lat=res['lat'];
           this.lng=res['lng'];
+          this.playbackTime=res['timeStamp'];
         } else {
-          this.stopInterval();
+          clearInterval(this.interval);
+          this.i = 1;
         }
       })
     },this.speed);
@@ -55,6 +58,11 @@ export class AppComponent {
   }
 
   stopPlot() {
+    this.i = 1;
+    this.stopInterval();
+  }
+
+  pausePlot() {
     this.stopInterval();
   }
 
