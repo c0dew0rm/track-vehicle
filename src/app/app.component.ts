@@ -19,8 +19,8 @@ export class AppComponent {
   getData=true;
   interval;
   i=-1;
-  x1=500;
-  x2=50;
+  x1=2000;
+  x2=200;
   speed=this.x1;
 
   constructor( private ReadCSV:ReadCSVService) { }
