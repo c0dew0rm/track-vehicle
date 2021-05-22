@@ -27,6 +27,7 @@ export class ReadCSVService {
           lat:parseFloat(this.csvRecords[i][1]),
           lng:parseFloat(this.csvRecords[i][2]),
           timeStamp: this.csvRecords[i][0],
+          vehicleId: this.csvRecords[i][4],
           }
         }
       }, (error: NgxCSVParserError) => {

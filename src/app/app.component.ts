@@ -23,6 +23,7 @@ export class AppComponent {
   x2=200;
   speed=this.x1;
   playbackTime;
+  markersList = {};
 
   constructor( private ReadCSV:ReadCSVService) { }
 
@@ -45,6 +46,11 @@ export class AppComponent {
           this.lat=res['lat'];
           this.lng=res['lng'];
           this.playbackTime=res['timeStamp'];
+          this.markersList[res['vehicleId']] = {
+            lat: res['lat'],
+            lng: res['lng'],
+            playbackTime: res['timeStamp']
+          };
         } else {
           clearInterval(this.interval);
           this.i = 1;
